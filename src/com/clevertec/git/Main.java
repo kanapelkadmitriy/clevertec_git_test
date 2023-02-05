@@ -26,7 +26,7 @@ public class Main {
             BigDecimal result = mathOperationService.process(firstDigit, secondDigit, operation);
             System.out.println("result: " + result);
             System.out.println("input END for finish");
-            String continueCondition = sc.next();
+            String continueCondition = sc.next().toUpperCase();
 
             if (END.equals(continueCondition)) {
                 isContinue = false;
