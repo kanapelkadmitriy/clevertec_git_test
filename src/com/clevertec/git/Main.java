@@ -4,6 +4,11 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
 
+import static com.clevertec.git.constants.MathSymbolsConstants.ADDITION;
+import static com.clevertec.git.constants.MathSymbolsConstants.DIVISION;
+import static com.clevertec.git.constants.MathSymbolsConstants.MULTIPLICATION;
+import static com.clevertec.git.constants.MathSymbolsConstants.SUBTRACTION;
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -20,16 +25,16 @@ public class Main {
             String operation = sc.next();
 
             BigDecimal result = null;
-            if ("+".equals(operation)) {
+            if (ADDITION.equals(operation)) {
                 result = firstDigit.add(secondDigit);
             }
-            if ("-".equals(operation)) {
+            if (SUBTRACTION.equals(operation)) {
                 result = firstDigit.subtract(secondDigit);
             }
-            if ("*".equals(operation)) {
+            if (MULTIPLICATION.equals(operation)) {
                 result = firstDigit.multiply(secondDigit);
             }
-            if ("/".equals(operation)) {
+            if (DIVISION.equals(operation)) {
                 result = firstDigit.divide(secondDigit, 2, RoundingMode.HALF_UP);
             }
             System.out.println("result: " + result);
