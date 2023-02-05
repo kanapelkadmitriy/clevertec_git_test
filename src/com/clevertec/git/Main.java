@@ -36,7 +36,7 @@ public class Main {
             System.out.println("Do you want to continue(y/n): ");
             String continueCondition = sc.next();
 
-            if ("n".equals(continueCondition.toLowerCase())) {
+            if ("n".equals(continueCondition)) {
                 isContinue = false;
             }
         }
