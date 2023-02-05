@@ -1,5 +1,7 @@
 package com.clevertec.git;
 
+import com.clevertec.git.services.MathOperationService;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
@@ -28,16 +30,16 @@ public class Main {
 
             BigDecimal result = null;
             if (ADDITION.equals(operation)) {
-                result = firstDigit.add(secondDigit);
+                result = MathOperationService.addition(firstDigit, secondDigit);
             }
             if (SUBTRACTION.equals(operation)) {
-                result = firstDigit.subtract(secondDigit);
+                result = MathOperationService.addition(firstDigit, secondDigit);
             }
             if (MULTIPLICATION.equals(operation)) {
-                result = firstDigit.multiply(secondDigit);
+                result = MathOperationService.addition(firstDigit, secondDigit);
             }
             if (DIVISION.equals(operation)) {
-                result = firstDigit.divide(secondDigit, 2, RoundingMode.HALF_UP);
+                result = MathOperationService.division(firstDigit, secondDigit);
             }
             System.out.println("result: " + result);
             System.out.println("Do you want to continue(y/n): ");
