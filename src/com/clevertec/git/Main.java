@@ -30,7 +30,12 @@ public class Main {
                 result = firstDigit.multiply(secondDigit);
             }
             if ("/".equals(operation)) {
-                result = firstDigit.divide(secondDigit, 2, RoundingMode.HALF_UP);
+                try {
+                    result = firstDigit.divide(secondDigit, 2, RoundingMode.HALF_UP);
+                } catch (ArithmeticException ex) {
+                    System.out.println("division by zero incorrect, try once more");
+                    continue;
+                }
             }
             System.out.println("result: " + result);
             System.out.println("Do you want to continue(y/n): ");
