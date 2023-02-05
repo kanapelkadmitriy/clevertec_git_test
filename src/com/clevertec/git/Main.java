@@ -1,5 +1,7 @@
 package com.clevertec.git;
 
+import com.clevertec.git.services.MathOperationService;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
@@ -13,7 +15,8 @@ import static com.clevertec.git.constants.MathSymbolsConstants.SUBTRACTION;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        final Scanner sc = new Scanner(System.in);
+        final MathOperationService mathOperationService = new MathOperationService();
         boolean isContinue = true;
 
         while (isContinue) {
@@ -26,24 +29,7 @@ public class Main {
             System.out.println("input operation: ");
             String operation = sc.next();
 
-            BigDecimal result = null;
-            if (ADDITION.equals(operation)) {
-                result = firstDigit.add(secondDigit);
-            }
-            if (SUBTRACTION.equals(operation)) {
-                result = firstDigit.subtract(secondDigit);
-            }
-            if (MULTIPLICATION.equals(operation)) {
-                result = firstDigit.multiply(secondDigit);
-            }
-            if (DIVISION.equals(operation)) {
-                try {
-                    result = firstDigit.divide(secondDigit, 2, RoundingMode.HALF_UP);
-                } catch (ArithmeticException ex) {
-                    System.out.println("division by zero incorrect, try once more");
-                    continue;
-                }
-            }
+            BigDecimal result = mathOperationService.process(firstDigit, secondDigit, operation);
             System.out.println("result: " + result);
             System.out.println("do you want to continue(y/n): ");
             String continueCondition = sc.next();
