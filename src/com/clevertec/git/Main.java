@@ -3,15 +3,9 @@ package com.clevertec.git;
 import com.clevertec.git.services.MathOperationService;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.Scanner;
 
-import static com.clevertec.git.constants.CommonConstants.NO;
-import static com.clevertec.git.constants.CommonConstants.YES;
-import static com.clevertec.git.constants.MathSymbolsConstants.ADDITION;
-import static com.clevertec.git.constants.MathSymbolsConstants.DIVISION;
-import static com.clevertec.git.constants.MathSymbolsConstants.MULTIPLICATION;
-import static com.clevertec.git.constants.MathSymbolsConstants.SUBTRACTION;
+import static com.clevertec.git.constants.CommonConstants.END;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,16 +25,12 @@ public class Main {
 
             BigDecimal result = mathOperationService.process(firstDigit, secondDigit, operation);
             System.out.println("result: " + result);
-            System.out.println("do you want to continue(y/n): ");
+            System.out.println("input END for finish");
             String continueCondition = sc.next();
 
-            if (NO.equals(continueCondition)) {
+            if (END.equals(continueCondition)) {
                 isContinue = false;
                 System.out.println("end");
-            }
-
-            if (YES.equals(continueCondition)) {
-                isContinue = true;
             }
         }
 
