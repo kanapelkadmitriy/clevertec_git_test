@@ -40,11 +40,12 @@ public class Main {
                 result = firstDigit.divide(secondDigit, 2, RoundingMode.HALF_UP);
             }
             System.out.println("result: " + result);
-            System.out.println("Do you want to continue(y/n): ");
+            System.out.println("do you want to continue(y/n): ");
             String continueCondition = sc.next();
 
             if (NO.equals(continueCondition)) {
                 isContinue = false;
+                System.out.println("end");
             }
 
             if (YES.equals(continueCondition)) {
