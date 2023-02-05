@@ -3,21 +3,42 @@ package com.clevertec.git.services;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class MathOperationService {
+import static com.clevertec.git.constants.MathSymbolsConstants.ADDITION;
+import static com.clevertec.git.constants.MathSymbolsConstants.DIVISION;
+import static com.clevertec.git.constants.MathSymbolsConstants.MULTIPLICATION;
+import static com.clevertec.git.constants.MathSymbolsConstants.SUBTRACTION;
 
-    public static BigDecimal addition(BigDecimal firstDigit, BigDecimal secondDigit) {
+public class MathOperationService {
+    public BigDecimal process(BigDecimal firstDigit, BigDecimal secondDigit, String operation) {
+        BigDecimal result = null;
+        if (ADDITION.equals(operation)) {
+            result = addition(firstDigit, secondDigit);
+        }
+        if (SUBTRACTION.equals(operation)) {
+            result = subtraction(firstDigit, secondDigit);
+        }
+        if (MULTIPLICATION.equals(operation)) {
+            result = multiplication(firstDigit, secondDigit);
+        }
+        if (DIVISION.equals(operation)) {
+            result = division(firstDigit, secondDigit);
+        }
+        return result;
+    }
+
+    private BigDecimal addition(BigDecimal firstDigit, BigDecimal secondDigit) {
         return firstDigit.add(secondDigit);
     }
 
-    public static BigDecimal subtraction(BigDecimal firstDigit, BigDecimal secondDigit) {
+    private BigDecimal subtraction(BigDecimal firstDigit, BigDecimal secondDigit) {
         return firstDigit.subtract(secondDigit);
     }
 
-    public static BigDecimal multiplication(BigDecimal firstDigit, BigDecimal secondDigit) {
+    private BigDecimal multiplication(BigDecimal firstDigit, BigDecimal secondDigit) {
         return firstDigit.multiply(secondDigit);
     }
 
-    public static BigDecimal division(BigDecimal firstDigit, BigDecimal secondDigit) {
+    private BigDecimal division(BigDecimal firstDigit, BigDecimal secondDigit) {
         return firstDigit.divide(secondDigit, 2, RoundingMode.HALF_UP);
     }
 }

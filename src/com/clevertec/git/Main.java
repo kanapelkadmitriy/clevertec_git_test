@@ -15,7 +15,8 @@ import static com.clevertec.git.constants.MathSymbolsConstants.SUBTRACTION;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        final Scanner sc = new Scanner(System.in);
+        final MathOperationService mathOperationService = new MathOperationService();
         boolean isContinue = true;
 
         while (isContinue) {
@@ -28,19 +29,7 @@ public class Main {
             System.out.println("input operation: ");
             String operation = sc.next();
 
-            BigDecimal result = null;
-            if (ADDITION.equals(operation)) {
-                result = MathOperationService.addition(firstDigit, secondDigit);
-            }
-            if (SUBTRACTION.equals(operation)) {
-                result = MathOperationService.addition(firstDigit, secondDigit);
-            }
-            if (MULTIPLICATION.equals(operation)) {
-                result = MathOperationService.addition(firstDigit, secondDigit);
-            }
-            if (DIVISION.equals(operation)) {
-                result = MathOperationService.division(firstDigit, secondDigit);
-            }
+            BigDecimal result = mathOperationService.process(firstDigit, secondDigit, operation);
             System.out.println("result: " + result);
             System.out.println("Do you want to continue(y/n): ");
             String continueCondition = sc.next();
