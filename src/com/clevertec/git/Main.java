@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
 
+import static com.clevertec.git.constants.CommonConstants.NO;
+import static com.clevertec.git.constants.CommonConstants.YES;
 import static com.clevertec.git.constants.MathSymbolsConstants.ADDITION;
 import static com.clevertec.git.constants.MathSymbolsConstants.DIVISION;
 import static com.clevertec.git.constants.MathSymbolsConstants.MULTIPLICATION;
@@ -41,8 +43,12 @@ public class Main {
             System.out.println("Do you want to continue(y/n): ");
             String continueCondition = sc.next();
 
-            if ("n".equals(continueCondition)) {
+            if (NO.equals(continueCondition)) {
                 isContinue = false;
+            }
+
+            if (YES.equals(continueCondition)) {
+                isContinue = true;
             }
         }
 
