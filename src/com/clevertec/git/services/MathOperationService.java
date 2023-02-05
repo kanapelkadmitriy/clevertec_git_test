@@ -9,36 +9,36 @@ import static com.clevertec.git.constants.MathSymbolsConstants.MULTIPLICATION;
 import static com.clevertec.git.constants.MathSymbolsConstants.SUBTRACTION;
 
 public class MathOperationService {
-    public BigDecimal process(BigDecimal firstDigit, BigDecimal secondDigit, String operation) {
+    public BigDecimal process(BigDecimal firstNumber, BigDecimal secondNumber, String operation) {
         BigDecimal result = null;
         if (ADDITION.equals(operation)) {
-            result = addition(firstDigit, secondDigit);
+            result = addition(firstNumber, secondNumber);
         }
         if (SUBTRACTION.equals(operation)) {
-            result = subtraction(firstDigit, secondDigit);
+            result = subtraction(firstNumber, secondNumber);
         }
         if (MULTIPLICATION.equals(operation)) {
-            result = multiplication(firstDigit, secondDigit);
+            result = multiplication(firstNumber, secondNumber);
         }
         if (DIVISION.equals(operation)) {
-            result = division(firstDigit, secondDigit);
+            result = division(firstNumber, secondNumber);
         }
         return result;
     }
 
-    private BigDecimal addition(BigDecimal firstDigit, BigDecimal secondDigit) {
-        return firstDigit.add(secondDigit);
+    private BigDecimal addition(BigDecimal firstNumber, BigDecimal secondNumber) {
+        return firstNumber.add(secondNumber);
     }
 
-    private BigDecimal subtraction(BigDecimal firstDigit, BigDecimal secondDigit) {
-        return firstDigit.subtract(secondDigit);
+    private BigDecimal subtraction(BigDecimal firstNumber, BigDecimal secondNumber) {
+        return firstNumber.subtract(secondNumber);
     }
 
-    private BigDecimal multiplication(BigDecimal firstDigit, BigDecimal secondDigit) {
-        return firstDigit.multiply(secondDigit);
+    private BigDecimal multiplication(BigDecimal firstNumber, BigDecimal secondNumber) {
+        return firstNumber.multiply(secondNumber);
     }
 
-    private BigDecimal division(BigDecimal firstDigit, BigDecimal secondDigit) {
-        return firstDigit.divide(secondDigit, 2, RoundingMode.HALF_UP);
+    private BigDecimal division(BigDecimal firstNumber, BigDecimal secondNumber) {
+        return firstNumber.divide(secondNumber, 2, RoundingMode.HALF_UP);
     }
 }

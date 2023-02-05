@@ -14,16 +14,16 @@ public class Main {
         boolean isContinue = true;
 
         while (isContinue) {
-            System.out.println("input first digit: ");
-            BigDecimal firstDigit = sc.nextBigDecimal();
+            System.out.println("input first number: ");
+            BigDecimal firstNumber = sc.nextBigDecimal();
 
-            System.out.println("input second digit: ");
-            BigDecimal secondDigit = sc.nextBigDecimal();
+            System.out.println("input second number: ");
+            BigDecimal secondNumber = sc.nextBigDecimal();
 
-            System.out.println("input operation: ");
+            System.out.println("input operation symbol: ");
             String operation = sc.next();
 
-            BigDecimal result = mathOperationService.process(firstDigit, secondDigit, operation);
+            BigDecimal result = mathOperationService.process(firstNumber, secondNumber, operation);
             System.out.println("result: " + result);
             System.out.println("input END for finish");
             String continueCondition = sc.next().toUpperCase();
