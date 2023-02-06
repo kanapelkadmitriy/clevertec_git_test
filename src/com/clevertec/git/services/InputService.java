@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class InputService {
 
-    InputDto inputData(Scanner sc) {
+    public static InputDto inputData(Scanner sc) {
         System.out.println("input first digit: ");
         BigDecimal firstDigit = sc.nextBigDecimal();
 

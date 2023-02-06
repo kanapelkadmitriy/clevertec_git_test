@@ -1,5 +1,8 @@
 package com.clevertec.git;
 
+import com.clevertec.git.dto.InputDto;
+import com.clevertec.git.services.InputService;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
@@ -17,14 +20,10 @@ public class Main {
         boolean isContinue = true;
 
         while (isContinue) {
-            System.out.println("input first digit: ");
-            BigDecimal firstDigit = sc.nextBigDecimal();
-
-            System.out.println("input operation: ");
-            String operation = sc.next();
-
-            System.out.println("input second digit: ");
-            BigDecimal secondDigit = sc.nextBigDecimal();
+            final InputDto inputDto = InputService.inputData(sc);
+            final String operation = inputDto.getOperation();
+            final BigDecimal firstDigit = inputDto.getFirstDigit();
+            final BigDecimal secondDigit = inputDto.getSecondDigit();
 
             BigDecimal result = null;
             if (ADDITION.equals(operation)) {
