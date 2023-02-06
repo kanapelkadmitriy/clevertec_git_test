@@ -1,5 +1,8 @@
 package com.clevertec.git;
 
+import com.clevertec.git.dto.InputDto;
+import com.clevertec.git.services.InputService;
+
 import com.clevertec.git.services.MathOperationService;
 
 import java.math.BigDecimal;
@@ -14,14 +17,10 @@ public class Main {
         boolean isContinue = true;
 
         while (isContinue) {
-            System.out.println("input first number: ");
-            BigDecimal firstNumber = sc.nextBigDecimal();
-
-            System.out.println("input second number: ");
-            BigDecimal secondNumber = sc.nextBigDecimal();
-
-            System.out.println("input operation symbol: ");
-            String operation = sc.next();
+            final InputDto inputDto = InputService.inputData(sc);
+            final String operation = inputDto.getOperation();
+            final BigDecimal firstDigit = inputDto.getFirstDigit();
+            final BigDecimal secondDigit = inputDto.getSecondDigit();
 
             BigDecimal result = mathOperationService.process(firstNumber, secondNumber, operation);
             System.out.println("result: " + result);
