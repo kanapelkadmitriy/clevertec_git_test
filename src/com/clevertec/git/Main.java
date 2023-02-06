@@ -12,20 +12,24 @@ import static com.clevertec.git.constants.CommonConstants.END;
 
 public class Main {
     public static void main(String[] args) {
-        final Scanner sc = new Scanner(System.in);
         final MathOperationService mathOperationService = new MathOperationService();
         boolean isContinue = true;
 
         while (isContinue) {
-            final InputDto inputDto = InputService.inputData(sc);
+            InputDto inputDto = null;
+            try {
+                inputDto = InputService.inputData();
+            } catch (Exception ex) {
+                System.out.println("invalid value, try once more");
+                continue;
+            }
             final String operation = inputDto.getOperation();
             final BigDecimal firstNumber = inputDto.getFirstDigit();
             final BigDecimal secondNumber = inputDto.getSecondDigit();
 
             BigDecimal result = mathOperationService.process(firstNumber, secondNumber, operation);
             System.out.println("result: " + result);
-            System.out.println("input END for finish");
-            String continueCondition = sc.next().toUpperCase();
+            String continueCondition = InputService.inputCondition();
 
             if (END.equals(continueCondition)) {
                 isContinue = false;
