@@ -5,12 +5,14 @@ import java.math.RoundingMode;
 
 import static com.clevertec.git.constants.MathSymbolsConstants.ADDITION;
 import static com.clevertec.git.constants.MathSymbolsConstants.DIVISION;
+import static com.clevertec.git.constants.MathSymbolsConstants.EXPONENTIATION;
 import static com.clevertec.git.constants.MathSymbolsConstants.MULTIPLICATION;
 import static com.clevertec.git.constants.MathSymbolsConstants.SUBTRACTION;
 
 public class MathOperationService {
     public BigDecimal process(BigDecimal firstDigit, BigDecimal secondDigit, String operation) {
         BigDecimal result = null;
+
         if (ADDITION.equals(operation)) {
             result = addition(firstDigit, secondDigit);
         }
@@ -22,6 +24,9 @@ public class MathOperationService {
         }
         if (DIVISION.equals(operation)) {
             result = division(firstDigit, secondDigit);
+        }
+        if (EXPONENTIATION.equals(operation)) {
+            result = exponentiation(firstDigit, secondDigit);
         }
         return result;
     }
@@ -40,5 +45,9 @@ public class MathOperationService {
 
     private BigDecimal division(BigDecimal firstDigit, BigDecimal secondDigit) {
         return firstDigit.divide(secondDigit, 2, RoundingMode.HALF_UP);
+    }
+
+    private BigDecimal exponentiation(BigDecimal firstDigit, BigDecimal secondDigit) {
+        return firstDigit.pow(secondDigit.intValue());
     }
 }
