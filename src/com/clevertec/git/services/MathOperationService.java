@@ -7,6 +7,7 @@ import static com.clevertec.git.constants.MathSymbolsConstants.ADDITION;
 import static com.clevertec.git.constants.MathSymbolsConstants.DIVISION;
 import static com.clevertec.git.constants.MathSymbolsConstants.EXPONENTIATION;
 import static com.clevertec.git.constants.MathSymbolsConstants.MULTIPLICATION;
+import static com.clevertec.git.constants.MathSymbolsConstants.PERCENT;
 import static com.clevertec.git.constants.MathSymbolsConstants.SUBTRACTION;
 
 public class MathOperationService {
@@ -27,6 +28,9 @@ public class MathOperationService {
         }
         if (EXPONENTIATION.equals(operation)) {
             result = exponentiation(firstDigit, secondDigit);
+        }
+        if (PERCENT.equals(operation)) {
+            result = percent(firstDigit, secondDigit);
         }
         return result;
     }
@@ -49,5 +53,11 @@ public class MathOperationService {
 
     private BigDecimal exponentiation(BigDecimal firstDigit, BigDecimal secondDigit) {
         return firstDigit.pow(secondDigit.intValue());
+    }
+
+    private BigDecimal percent(BigDecimal firstDigit, BigDecimal secondDigit) {
+        return firstDigit
+                .multiply(BigDecimal.valueOf(100))
+                .divide(secondDigit, 2, RoundingMode.HALF_UP);
     }
 }
