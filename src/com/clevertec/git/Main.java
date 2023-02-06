@@ -19,8 +19,8 @@ public class Main {
         while (isContinue) {
             final InputDto inputDto = InputService.inputData(sc);
             final String operation = inputDto.getOperation();
-            final BigDecimal firstDigit = inputDto.getFirstDigit();
-            final BigDecimal secondDigit = inputDto.getSecondDigit();
+            final BigDecimal firstNumber = inputDto.getFirstDigit();
+            final BigDecimal secondNumber = inputDto.getSecondDigit();
 
             BigDecimal result = mathOperationService.process(firstNumber, secondNumber, operation);
             System.out.println("result: " + result);

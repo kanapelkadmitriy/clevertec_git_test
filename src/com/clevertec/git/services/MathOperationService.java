@@ -27,10 +27,10 @@ public class MathOperationService {
             result = division(firstNumber, secondNumber);
         }
         if (EXPONENTIATION.equals(operation)) {
-            result = exponentiation(firstDigit, secondDigit);
+            result = exponentiation(firstNumber, secondNumber);
         }
         if (PERCENT.equals(operation)) {
-            result = percent(firstDigit, secondDigit);
+            result = percent(firstNumber, secondNumber);
         }
         return result;
     }
@@ -51,13 +51,13 @@ public class MathOperationService {
         return firstNumber.divide(secondNumber, 2, RoundingMode.HALF_UP);
     }
 
-    private BigDecimal exponentiation(BigDecimal firstDigit, BigDecimal secondDigit) {
-        return firstDigit.pow(secondDigit.intValue());
+    private BigDecimal exponentiation(BigDecimal firstNumber, BigDecimal secondNumber) {
+        return firstNumber.pow(secondNumber.intValue());
     }
 
-    private BigDecimal percent(BigDecimal firstDigit, BigDecimal secondDigit) {
-        return firstDigit
-                .multiply(secondDigit)
+    private BigDecimal percent(BigDecimal firstNumber, BigDecimal secondNumber) {
+        return firstNumber
+                .multiply(secondNumber)
                 .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
     }
 }
