@@ -5,12 +5,15 @@ import java.math.RoundingMode;
 
 import static com.clevertec.git.constants.MathSymbolsConstants.ADDITION;
 import static com.clevertec.git.constants.MathSymbolsConstants.DIVISION;
+import static com.clevertec.git.constants.MathSymbolsConstants.EXPONENTIATION;
 import static com.clevertec.git.constants.MathSymbolsConstants.MULTIPLICATION;
+import static com.clevertec.git.constants.MathSymbolsConstants.PERCENT;
 import static com.clevertec.git.constants.MathSymbolsConstants.SUBTRACTION;
 
 public class MathOperationService {
     public BigDecimal process(BigDecimal firstNumber, BigDecimal secondNumber, String operation) {
         BigDecimal result = null;
+
         if (ADDITION.equals(operation)) {
             result = addition(firstNumber, secondNumber);
         }
@@ -22,6 +25,12 @@ public class MathOperationService {
         }
         if (DIVISION.equals(operation)) {
             result = division(firstNumber, secondNumber);
+        }
+        if (EXPONENTIATION.equals(operation)) {
+            result = exponentiation(firstDigit, secondDigit);
+        }
+        if (PERCENT.equals(operation)) {
+            result = percent(firstDigit, secondDigit);
         }
         return result;
     }
@@ -40,5 +49,15 @@ public class MathOperationService {
 
     private BigDecimal division(BigDecimal firstNumber, BigDecimal secondNumber) {
         return firstNumber.divide(secondNumber, 2, RoundingMode.HALF_UP);
+    }
+
+    private BigDecimal exponentiation(BigDecimal firstDigit, BigDecimal secondDigit) {
+        return firstDigit.pow(secondDigit.intValue());
+    }
+
+    private BigDecimal percent(BigDecimal firstDigit, BigDecimal secondDigit) {
+        return firstDigit
+                .multiply(secondDigit)
+                .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
     }
 }
