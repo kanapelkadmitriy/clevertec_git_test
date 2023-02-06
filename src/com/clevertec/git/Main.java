@@ -20,11 +20,11 @@ public class Main {
             System.out.println("input first digit: ");
             BigDecimal firstDigit = sc.nextBigDecimal();
 
-            System.out.println("input second digit: ");
-            BigDecimal secondDigit = sc.nextBigDecimal();
-
             System.out.println("input operation: ");
             String operation = sc.next();
+
+            System.out.println("input second digit: ");
+            BigDecimal secondDigit = sc.nextBigDecimal();
 
             BigDecimal result = null;
             if (ADDITION.equals(operation)) {
