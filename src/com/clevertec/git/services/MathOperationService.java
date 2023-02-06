@@ -57,7 +57,7 @@ public class MathOperationService {
 
     private BigDecimal percent(BigDecimal firstDigit, BigDecimal secondDigit) {
         return firstDigit
-                .multiply(BigDecimal.valueOf(100))
-                .divide(secondDigit, 2, RoundingMode.HALF_UP);
+                .multiply(secondDigit)
+                .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
     }
 }
